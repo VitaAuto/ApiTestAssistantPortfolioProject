@@ -1,4 +1,5 @@
-***ApiTestAssistant***
+**ApiTestAssistant**
+
 ApiTestAssistant is a C# console application designed to automatically generate API test cases (initially using Behavior-Driven Development) based on an OpenAPI specification. 
 The application leverages a Large Language Model (LLM) via OpenRouter to create test scenarios, enabling fast and convenient generation of test cases for API validation.
 
@@ -10,8 +11,7 @@ The application leverages a Large Language Model (LLM) via OpenRouter to create 
 - Secure handling of secrets (API keys), with environment variables as the preferred method.
 
 **Test Case Generation Instructions**
-All rules and best practices for generating API test cases are described in detail in the instructions.md file included in this project.
-
+- All rules and best practices for generating API test cases are described in detail in the instructions.md file included in this project.
 - instructions.md contains strict guidelines for generating BDD-style test cases for each API endpoint.
 - It defines the required structure, format, and types of test cases (positive, negative, edge, etc.).
 - The instructions ensure that all generated test cases are realistic, business-relevant, and technically meaningful.
@@ -21,6 +21,7 @@ All rules and best practices for generating API test cases are described in deta
 
 **Setup and Run**
 1. *Configure Your API Key*
+
 You can provide your OpenRouter (LLM) API key in one of the following ways:
 
 Recommended: Set an environment variable in your terminal session:
@@ -36,6 +37,7 @@ Alternative: Add it to ApiTestAssistantProject/appsettings.json under Llm:ApiKey
 }
 
 2. *Configure OpenAPI URL*
+
 Set the OpenAPI URL in one of the following ways:
 
 Environment variable:
@@ -51,6 +53,7 @@ json
 You can also override this value via CLI options (see below).
 
 3. *Run the Application*
+
 A. The Short Way: PowerShell Script
 From the repository root, simply run:
 powershell
@@ -93,10 +96,12 @@ CLI options:
 Note: The -- before CLI options is required to forward arguments to the app when using dotnet run.
 
 4. *Output*
+
 By default, the program writes a file named generated_test_cases_YYYYMMDD_HHMMSS.csv in the 'ApiTestAssistant.Tests' folder.
 An Excel file with the same name will also be created in the same folder.
 
 5. *Example appsettings.json*
+
 {
   "OpenApi": {
     "Url": "https://petstore3.swagger.io/api/v3/openapi.json",
@@ -112,7 +117,8 @@ An Excel file with the same name will also be created in the same folder.
 }
 
 6. *Notes*
-CLI/script options take precedence over config file and environment variables.
-For secrets (API keys, passwords), always prefer environment variables.
-All errors and logs are written to ApiTestAssistant.log in the working directory.
-For more details on options, run with --help (CLI) or -Help (PowerShell script).
+
+- CLI/script options take precedence over config file and environment variables.
+- For secrets (API keys, passwords), always prefer environment variables.
+- All errors and logs are written to ApiTestAssistant.log in the working directory.
+- For more details on options, run with --help (CLI) or -Help (PowerShell script).
